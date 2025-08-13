@@ -3,12 +3,6 @@
 
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Virtual Pet Cemetery — A Peaceful, Living Memorial',
-  description:
-    'Create a beautiful, shared memorial world for your pet. Build a plot, invite loved ones, and host an online funeral with livestream and tributes.',
-};
-
 export default function Home() {
   return (
     <main className="wow-root">
@@ -196,7 +190,6 @@ export default function Home() {
                       #070b10;
           overflow: clip;
         }
-        /* Background blobs + grid */
         .wow-bg { position: fixed; inset: 0; z-index: -2; }
         .blob { position: absolute; width: 70vmin; height: 70vmin; filter: blur(42px); opacity:.55; animation: float 14s ease-in-out infinite; }
         .b1 { left: -10vmin; top: -8vmin; background: radial-gradient(circle at 30% 30%, #3affc3, #2aa07b 40%, transparent 60%); }
@@ -207,7 +200,6 @@ export default function Home() {
 
         .frame{ max-width: 1180px; margin: 0 auto; padding: 28px 18px; }
 
-        /* HERO */
         .hero{ display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: center; }
         @media (max-width: 980px){ .hero{ grid-template-columns: 1fr; } }
         .chip{ display:inline-block; font-size:12px; font-weight:700; letter-spacing:.06em; padding:6px 10px; border-radius:999px; color:#0a1b14;
@@ -257,7 +249,6 @@ export default function Home() {
         .dot.live{ background:#ff8aa1; box-shadow: 0 0 0 3px rgba(255,138,161,.18); }
         .dot.safe{ background:#66e4a6; box-shadow: 0 0 0 3px rgba(102,228,166,.18); }
 
-        /* PILLARS */
         .pillars{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
         @media (max-width: 980px){ .pillars{ grid-template-columns: 1fr; } }
         .pillar{ border:1px solid var(--stroke); border-radius:16px; padding:16px;
@@ -270,7 +261,6 @@ export default function Home() {
         .link{ color: #9af0ff; text-decoration: none; font-weight:700; }
         .link:hover{ text-decoration: underline; }
 
-        /* GALLERY */
         .gallery .head h2{ font-size: 28px; margin-bottom: 6px; }
         .gallery .head p{ color: var(--muted); margin-bottom: 12px; }
         .gallery .cards{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
@@ -288,7 +278,6 @@ export default function Home() {
         .shimmer::after{ content:''; position:absolute; inset:-1px; background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.12) 20%, transparent 40%); transform: translateX(-100%); animation: shimmer 3.2s ease-in-out infinite; }
         @keyframes shimmer { 0%{ transform: translateX(-100%);} 100%{ transform: translateX(100%);} }
 
-        /* HOW */
         .how h2{ font-size: 26px; margin-bottom: 10px; }
         .steps{ list-style: none; margin:0; padding:0; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
         @media (max-width: 980px){ .steps{ grid-template-columns: 1fr; } }
@@ -297,7 +286,6 @@ export default function Home() {
         .num{ width:28px; height:28px; border-radius: 10px; display:grid; place-items:center; font-weight:800;
               background: linear-gradient(90deg, #66e4a6, #9af0ff); color:#0a1217; }
 
-        /* PRICING */
         .pricing h2{ font-size: 26px; margin-bottom: 10px; }
         .tiers{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
         @media (max-width: 980px){ .tiers{ grid-template-columns: 1fr; } }
@@ -310,7 +298,6 @@ export default function Home() {
         .tier.pro{ outline: 3px solid rgba(154,240,255,.25); background: linear-gradient(180deg, rgba(154,240,255,.14), rgba(255,255,255,.04)); }
         .glow{ box-shadow: 0 0 40px rgba(154,240,255,.25); }
 
-        /* FOOTER CTA */
         .footer-cta{ text-align:center; }
         .footer-cta h2{ font-size: 28px; margin-bottom: 6px; }
         .footer-cta p{ color: var(--muted); }
