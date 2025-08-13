@@ -4,32 +4,32 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Virtual Pet Cemetery — A Peaceful Memorial World',
   description:
-    'Create a beautiful memorial space for your pet, host an online funeral, and invite friends and family to remember together.',
+    'Create a gentle memorial space for your pet, invite loved ones, and host an online funeral from anywhere.',
 };
 
 export default function Home() {
   return (
-    <div className="home">
+    <main className="home">
       {/* HERO */}
       <section className="hero card">
         <div className="hero-copy">
-          <span className="badge">New • MVP Live</span>
+          <span className="badge">MVP Live</span>
           <h1 className="hero-title">A peaceful place to remember our pets</h1>
           <p className="hero-sub">
-            Create a gentle, customizable memorial world. Invite loved ones to
-            wander, light candles, leave notes — and host an online funeral from anywhere.
+            Create a beautiful memorial plot, light candles, leave messages, and invite family
+            and friends to visit. When you’re ready, host an online funeral in the same space.
           </p>
+
           <div className="hero-actions">
-            <Link className="btn" href="/world">Open the Builder</Link>
+            <Link className="btn" href="/world">Create a Memorial</Link>
             <Link className="btn secondary" href="/event/demo">Preview a Funeral</Link>
           </div>
-          <p className="small hero-footnote">
-            No downloads needed. Works on mobile & desktop.
-          </p>
+          <p className="small hero-footnote">Works on mobile & desktop — no download required.</p>
         </div>
+
+        {/* Simple illustrative preview */}
         <div className="hero-visual">
-          {/* Simple “world preview” card */}
-          <div className="hero-preview">
+          <div className="hero-preview" aria-hidden>
             <div className="preview-sky" />
             <div className="preview-hill" />
             <div className="preview-stone">🐾</div>
@@ -39,63 +39,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
+      {/* PILLARS */}
       <section className="section card">
-        <h2 className="section-title">How it works</h2>
-        <div className="steps">
-          <div className="step">
-            <div className="step-icon" aria-hidden>①</div>
-            <h3>Create your plot</h3>
-            <p>Pick a theme and place stones, benches, trees, candles, and more.</p>
+        <h2 className="section-title">What you can do</h2>
+        <div className="pillars">
+          <div className="pillar">
+            <div className="pillar-icon" aria-hidden>🕯️</div>
+            <h3>Create a memorial</h3>
+            <p>Place stones, benches, trees and more in a calm 3D world. Personalize with photos and notes.</p>
+            <Link href="/world" className="link">Start building →</Link>
           </div>
-          <div className="step">
-            <div className="step-icon" aria-hidden>②</div>
-            <h3>Invite family & friends</h3>
-            <p>Share a link to visit, leave notes, and light virtual candles.</p>
-          </div>
-          <div className="step">
-            <div className="step-icon" aria-hidden>③</div>
+          <div className="pillar">
+            <div className="pillar-icon" aria-hidden>🎥</div>
             <h3>Hold an online funeral</h3>
-            <p>Livestream the ceremony, play a slideshow, and keep the recording as a keepsake.</p>
+            <p>Livestream the service in the same space. Friends and family can attend from anywhere.</p>
+            <Link href="/event/demo" className="link">See a demo →</Link>
+          </div>
+          <div className="pillar">
+            <div className="pillar-icon" aria-hidden>💬</div>
+            <h3>Gather messages & candles</h3>
+            <p>Invite guests to leave tributes, light virtual candles, and share memories.</p>
+            <Link href="/world" className="link">Create your space →</Link>
           </div>
         </div>
       </section>
 
-      {/* FEATURES GRID */}
+      {/* HOW IT WORKS */}
       <section className="section card">
-        <h2 className="section-title">Thoughtful features</h2>
-        <div className="feature-grid">
-          <div className="feature">
-            <div className="feature-icon" aria-hidden>🕯️</div>
-            <h3>Rituals & tributes</h3>
-            <p>Light candles, leave flowers, pawprints, notes, and audio messages.</p>
-          </div>
-          <div className="feature">
-            <div className="feature-icon" aria-hidden>🌳</div>
-            <h3>Custom world</h3>
-            <p>Choose terrain, flora, structures, time of day, weather, and music.</p>
-          </div>
-          <div className="feature">
-            <div className="feature-icon" aria-hidden>🎞️</div>
-            <h3>Slideshows & keepsakes</h3>
-            <p>Upload photos and videos, play during ceremonies, save recordings.</p>
-          </div>
-          <div className="feature">
-            <div className="feature-icon" aria-hidden>🔒</div>
-            <h3>Privacy controls</h3>
-            <p>Make memorials public, unlisted, or private — with safe, moderated messages.</p>
-          </div>
-          <div className="feature">
-            <div className="feature-icon" aria-hidden>♿</div>
-            <h3>Accessible by design</h3>
-            <p>Captions, keyboard navigation, reduced motion, high-contrast themes.</p>
-          </div>
-          <div className="feature">
-            <div className="feature-icon" aria-hidden>💚</div>
-            <h3>GDPR-first</h3>
-            <p>Clear consent for recording, export/delete options, and sensible retention.</p>
-          </div>
-        </div>
+        <h2 className="section-title">How it works</h2>
+        <ol className="steps">
+          <li>
+            <strong>Build your plot</strong>
+            <p>Open the builder and place objects. Everything saves locally — and to the cloud when signed in.</p>
+          </li>
+          <li>
+            <strong>Invite people</strong>
+            <p>Share a link so loved ones can visit the memorial and leave messages.</p>
+          </li>
+          <li>
+            <strong>Schedule a ceremony</strong>
+            <p>Embed a livestream (Mux or Zoom) with music, slides, and a recording to keep.</p>
+          </li>
+        </ol>
       </section>
 
       {/* PRICING TEASER */}
@@ -107,7 +92,7 @@ export default function Home() {
             <div className="price-amt">£0</div>
             <ul className="price-list">
               <li>1 memorial plot</li>
-              <li>Basic assets</li>
+              <li>Basic assets & candles</li>
               <li>30-min livestream (embed)</li>
               <li>7-day recording</li>
             </ul>
@@ -116,9 +101,9 @@ export default function Home() {
             <div className="price-name">Plus</div>
             <div className="price-amt">£9<span className="muted">/mo</span></div>
             <ul className="price-list">
-              <li>Themes & ambient</li>
-              <li>200 photos</li>
-              <li>3 ceremonies/yr</li>
+              <li>Themes & ambience</li>
+              <li>Guestbook & tributes</li>
+              <li>3 ceremonies / year</li>
               <li>90-day recordings</li>
             </ul>
           </div>
@@ -133,32 +118,33 @@ export default function Home() {
             </ul>
           </div>
         </div>
+
         <div className="center mt16">
           <Link className="btn" href="/world">Create your memorial</Link>
         </div>
       </section>
 
-      {/* FAQ / FOOTER CTA */}
+      {/* FAQ */}
       <section className="section card">
         <h2 className="section-title">Questions</h2>
         <div className="faq">
           <details>
             <summary>Do I need to install anything?</summary>
-            <p>No — it runs in your browser on mobile and desktop.</p>
+            <p>No. It runs in your browser on mobile and desktop.</p>
           </details>
           <details>
             <summary>Can I keep the memorial private?</summary>
-            <p>Yes. You can make it public, unlisted, or private, and moderate all messages.</p>
+            <p>Yes. Set it to public, unlisted, or private — and moderate all messages.</p>
           </details>
           <details>
             <summary>How do online funerals work?</summary>
-            <p>We embed a livestream (Mux or Zoom) into your memorial space with chat, slideshows, and recording.</p>
+            <p>We embed a livestream (Mux or Zoom) into your memorial with chat, slides, and recording.</p>
           </details>
         </div>
         <div className="center mt16">
           <Link className="btn secondary" href="/event/demo">See a ceremony demo</Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
