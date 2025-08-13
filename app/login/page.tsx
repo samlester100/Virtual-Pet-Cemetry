@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 
+const redirectTo =
+  (typeof window !== 'undefined' && window.location.origin) ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  'https://virtual-pet-cemetry-xoji.vercel.app';
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
@@ -13,7 +18,7 @@ export default function LoginPage() {
     setError(null);
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: window.location.origin }
+      options: { emailRedirectTo: redirectTo }
     });
     if (error) setError(error.message);
     else setSent(true);
@@ -27,18 +32,12 @@ export default function LoginPage() {
         <p>Check your email for the sign-in link.</p>
       ) : (
         <form onSubmit={sendLink} className="grid" style={{maxWidth:380}}>
-          <input
-            className="input"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
-          />
+          <input className="input" type="email" required value={email}
+                 onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" />
           <button className="btn" type="submit">Send magic link</button>
         </form>
       )}
-      {error && <p style={{ color: 'crimson' }}>{error}</p>}
+      {error && <p style={{color:'crimson'}}>{error}</p>}
     </div>
   );
 }
