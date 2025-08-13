@@ -1,11 +1,9 @@
-// app/layout.tsx
 import './globals.css';
-import Header from '../components/Header'; // use relative path (no @/)
+import Header from '../components/Header';
 
 export const metadata = {
   title: 'Virtual Pet Cemetery',
-  description:
-    'Create a peaceful memorial world for your pet and host an online funeral.',
+  description: 'Create a peaceful memorial world for your pet.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
