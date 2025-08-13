@@ -447,7 +447,14 @@ export default function WorldPage() {
       </p>
 
       {/* Canvas */}
-      <div className="world-wrap" ref={mountRef}>Loading world…</div>
+<div
+  className="world-wrap"
+  ref={mountRef}
+  style={{ height: '70vh', minHeight: 420, width: '100%' }}
+>
+  Loading world…
+</div>
+
 
       {/* Toolbar */}
       <div className="controls" style={{ alignItems: 'center' }}>
