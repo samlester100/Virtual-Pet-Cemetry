@@ -244,4 +244,4 @@
 .footer-cta p{ color: var(--muted); }
 
 /* Utility tweaks so existing .card/.btn styles don’t clash */
-.card, .section { background: transparent; border: none; padding: 0; }
+
