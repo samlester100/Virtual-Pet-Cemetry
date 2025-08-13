@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 
-
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
@@ -11,9 +10,7 @@ export default function LoginPage() {
 
   async function sendLink(e: React.FormEvent) {
     e.preventDefault();
-import { supabase } from '../../lib/supabaseClient';
-
-
+    setError(null);
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: { emailRedirectTo: window.location.origin }
@@ -30,12 +27,18 @@ import { supabase } from '../../lib/supabaseClient';
         <p>Check your email for the sign-in link.</p>
       ) : (
         <form onSubmit={sendLink} className="grid" style={{maxWidth:380}}>
-          <input className="input" type="email" required value={email}
-                 onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" />
+          <input
+            className="input"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+          />
           <button className="btn" type="submit">Send magic link</button>
         </form>
       )}
-      {error && <p style={{color:'crimson'}}>{error}</p>}
+      {error && <p style={{ color: 'crimson' }}>{error}</p>}
     </div>
   );
 }
