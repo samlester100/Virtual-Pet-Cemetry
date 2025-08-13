@@ -301,7 +301,36 @@ export default function Home() {
         .footer-cta{ text-align:center; }
         .footer-cta h2{ font-size: 28px; margin-bottom: 6px; }
         .footer-cta p{ color: var(--muted); }
+        /* --- PRICING LAYOUT FIX --- */
+.pricing .tiers{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.tier{
+  padding: 24px;
+  border-radius: 20px;
+  min-width: 0; /* prevents squish inside flex/grids */
+}
+.tier .title{ font-size: 14px; letter-spacing:.04em; opacity:.9; }
+.tier .price{ font-size: 32px; margin: 10px 0 12px; }
+.tier ul{ margin-top: 8px; line-height: 1.45; }
+
+.btn-hero.slim{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Optional: step down columns sooner on medium screens */
+@media (max-width: 1100px){
+  .pricing .tiers{ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}
+
       `}</style>
     </main>
   );
 }
+
