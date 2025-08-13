@@ -21,10 +21,10 @@ export default function Home() {
             A <em>beautiful</em> place
             <br /> to remember our pets
           </h1>
-          <p className="sub">
-            Build a gentle 3D memorial, light candles, gather messages, and bring everyone together
-            for an online funeral—no downloads, just a link.
-          </p>
+            <p className="sub">
+              Build a gentle 3D memorial, light candles, gather messages, and bring everyone together
+              for an online funeral—no downloads, just a link.
+            </p>
           <div className="cta">
             <Link href="/world" className="btn-hero primary">Open the Builder</Link>
             <Link href="/event/demo" className="btn-hero ghost">Preview a Funeral</Link>
@@ -300,20 +300,24 @@ export default function Home() {
         .num{ width:28px; height:28px; border-radius: 10px; display:grid; place-items:center; font-weight:800;
               background: linear-gradient(90deg, #27b082, #3aa8ff); color:#ffffff; }
 
-        /* PRICING */
+        /* PRICING — fixed horizontal layout */
         .pricing h2{ font-size: 26px; margin-bottom: 12px; }
         .tiers{
           display: grid;
-          grid-template-columns: repeat(3, 1fr); /* always horizontal on desktop */
-          gap: 18px;
+          grid-template-columns: repeat(3, minmax(260px, 1fr)); /* 3 across on desktop */
+          gap: 20px;
           align-items: stretch;
         }
-        @media (max-width: 768px){
+        @media (max-width: 1024px){
+          .tiers{ grid-template-columns: repeat(2, minmax(240px, 1fr)); } /* 2 across on tablets */
+        }
+        @media (max-width: 640px){
           .tiers{ grid-template-columns: 1fr; } /* stack on mobile */
         }
         .tier{
           border:1px solid var(--stroke); border-radius:18px; padding:22px;
           background: #ffffff; box-shadow: var(--shadow); text-align:center;
+          min-width: 0;
         }
         .tier .title{ font-weight:800; letter-spacing:.02em; font-size:14px; color:#1f2a37; }
         .tier .price{ font-size: 32px; font-weight: 900; margin: 8px 0 10px; }
@@ -324,7 +328,6 @@ export default function Home() {
           outline: 2px solid rgba(58,168,255,.25);
           background: linear-gradient(180deg, rgba(58,168,255,.06), rgba(255,255,255,1) 60%);
         }
-
         .btn-hero.slim{
           width: 100%;
           justify-content: center;
@@ -345,3 +348,4 @@ export default function Home() {
     </main>
   );
 }
+
