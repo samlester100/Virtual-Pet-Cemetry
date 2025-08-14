@@ -264,3 +264,6 @@ export default function Home() {
     </main>
   );
 }
+<style jsx global>{`
+  /* lots of .hp-* styles here */
+`}</style>
