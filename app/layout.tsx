@@ -1,5 +1,6 @@
 // app/layout.tsx
 import './globals.css';
+import Link from 'next/link';
 import { Inter, Fraunces } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
@@ -13,7 +14,21 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body>{children}</body>
+      <body>
+        {/* HEADER */}
+        <header className="bg-white shadow">
+          <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <Link href="/" className="text-xl font-bold">Virtual Pet Cemetery</Link>
+            <div className="space-x-6">
+              <Link href="/" className="hover:underline">Home</Link>
+              <Link href="/about" className="hover:underline">About Us</Link>
+            </div>
+          </nav>
+        </header>
+
+        {/* MAIN CONTENT */}
+        <main className="min-h-screen">{children}</main>
+      </body>
     </html>
   );
 }
