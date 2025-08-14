@@ -24,7 +24,7 @@ export default function Home() {
         </div>
 
         {/* Hero visual — dreamy sky + rainbow arc + soft clouds (pure CSS, no images) */}
-        <div className="hp-hero-visual" aria-hidden>
+        <div className="hp-hero-visual" aria-hidden="true">
           <div className="hp-hero-canvas">
             <div className="hp-rainbow" />
             <div className="hp-cloud hp-cloud--1" />
@@ -84,14 +84,14 @@ export default function Home() {
         </div>
         <div className="hp-test-grid">
           <figure className="hp-quote">
-            <div className="hp-avatar hp-avatar--luna" aria-hidden />
+            <div className="hp-avatar hp-avatar--luna" aria-hidden="true" />
             <blockquote>
               “Lighting a candle in her garden and seeing everyone’s notes made it feel like we were there together.”
             </blockquote>
             <figcaption>Amelia • Luna’s person</figcaption>
           </figure>
           <figure className="hp-quote">
-            <div className="hp-avatar hp-avatar--archie" aria-hidden />
+            <div className="hp-avatar hp-avatar--archie" aria-hidden="true" />
             <blockquote>
               “The ceremony was beautiful. We laughed and cried. Now we have a place to visit any time.”
             </blockquote>
@@ -210,7 +210,7 @@ export default function Home() {
         .hp-hero{ display:grid; grid-template-columns: 1.05fr 1fr; gap:26px; align-items:center; }
         @media (max-width: 980px){ .hp-hero{ grid-template-columns:1fr; } }
 
-        /* Hero visual canvas (no images) */
+        /* Hero visual container */
         .hp-hero-visual{ display:flex; flex-direction:column; align-items:flex-start; }
         .hp-hero-canvas{
           position:relative; width:100%; max-width:640px; aspect-ratio:16/10; border-radius:22px;
@@ -300,7 +300,7 @@ export default function Home() {
         .hp-link{ color:var(--hp-brand); font-weight:800; text-decoration:none; }
         .hp-link:hover{ text-decoration:underline; }
 
-        /* TESTIMONIALS (with generated avatars) */
+        /* TESTIMONIALS */
         .hp-testimonials .hp-head p{ color:var(--hp-muted); }
         .hp-test-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px; }
         @media (max-width:980px){ .hp-test-grid{ grid-template-columns:1fr; } }
