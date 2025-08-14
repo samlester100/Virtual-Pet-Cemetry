@@ -14,7 +14,8 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body>
+      <body className="bg-slate-50 text-slate-800">
+        {/* NAVIGATION */}
         <header className="bg-white shadow">
           <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
             <Link href="/" className="text-xl font-bold">Virtual Pet Cemetery</Link>
@@ -26,7 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
-        <main className="min-h-screen">{children}</main>
+        {/* MAIN CONTENT */}
+        <main>{children}</main>
       </body>
     </html>
   );
