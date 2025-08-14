@@ -23,9 +23,17 @@ export default function Home() {
           <p className="hp-fine">No downloads • Private by default • Works on mobile & desktop</p>
         </div>
 
-        {/* Hero visual (uses /public/hero.jpg if present, otherwise gradient fallback) */}
-        <div className="hp-hero-visual">
-          <div className="hp-hero-img" aria-hidden />
+        {/* Hero visual — dreamy sky + rainbow arc + soft clouds (pure CSS, no images) */}
+        <div className="hp-hero-visual" aria-hidden>
+          <div className="hp-hero-canvas">
+            <div className="hp-rainbow" />
+            <div className="hp-cloud hp-cloud--1" />
+            <div className="hp-cloud hp-cloud--2" />
+            <div className="hp-cloud hp-cloud--3" />
+            <div className="hp-flowers" />
+            <div className="hp-path" />
+            <div className="hp-paws" />
+          </div>
           <div className="hp-badges">
             <span className="hp-chip"><i className="hp-dot hp-dot--live" /> Live ceremony</span>
             <span className="hp-chip"><i className="hp-dot hp-dot--safe" /> Private by default</span>
@@ -38,10 +46,10 @@ export default function Home() {
         <div className="hp-trust-row">
           <span className="hp-trust-label">Trusted by pet families worldwide</span>
           <div className="hp-logos">
-            <img src="/logos/pet-society.svg" alt="Pet Society" />
-            <img src="/logos/guardian-pets.svg" alt="Guardian Pets" />
-            <img src="/logos/memory-lane.svg" alt="Memory Lane" />
-            <img src="/logos/forever-friends.svg" alt="Forever Friends" />
+            <span className="hp-logo">Pet Society</span>
+            <span className="hp-logo">Guardian Pets</span>
+            <span className="hp-logo">Memory Lane</span>
+            <span className="hp-logo">Forever Friends</span>
           </div>
         </div>
       </section>
@@ -76,14 +84,14 @@ export default function Home() {
         </div>
         <div className="hp-test-grid">
           <figure className="hp-quote">
-            <img className="hp-avatar" src="/avatars/luna.jpg" alt="" />
+            <div className="hp-avatar hp-avatar--luna" aria-hidden />
             <blockquote>
               “Lighting a candle in her garden and seeing everyone’s notes made it feel like we were there together.”
             </blockquote>
             <figcaption>Amelia • Luna’s person</figcaption>
           </figure>
           <figure className="hp-quote">
-            <img className="hp-avatar" src="/avatars/archie.jpg" alt="" />
+            <div className="hp-avatar hp-avatar--archie" aria-hidden />
             <blockquote>
               “The ceremony was beautiful. We laughed and cried. Now we have a place to visit any time.”
             </blockquote>
@@ -103,8 +111,8 @@ export default function Home() {
             <ul>
               <li>1 memorial plot</li>
               <li>Basic assets & candles</li>
-              <li>30‑min livestream (embed)</li>
-              <li>7‑day recording</li>
+              <li>30-min livestream (embed)</li>
+              <li>7-day recording</li>
             </ul>
             <Link href="/world" className="hp-btn hp-btn--primary hp-btn--slim">Create free</Link>
             <p className="hp-micro">No card required</p>
@@ -118,7 +126,7 @@ export default function Home() {
               <li>Themes & ambience</li>
               <li>Guestbook & tributes</li>
               <li>3 ceremonies / year</li>
-              <li>90‑day recordings</li>
+              <li>90-day recordings</li>
             </ul>
             <Link href="/world" className="hp-btn hp-btn--gradient hp-btn--slim">Start Plus</Link>
             <p className="hp-micro">Cancel anytime</p>
@@ -146,8 +154,7 @@ export default function Home() {
           <p>Create a peaceful place today. Invite others when it feels right.</p>
           <div className="hp-cta">
             <Link href="/world" className="hp-btn hp-btn--primary">Open the Builder</Link>
-           <Link href="/sign-in" className="hp-btn hp-btn--ghost">Sign in</Link>
-
+            <Link href="/sign-in" className="hp-btn hp-btn--ghost">Sign in</Link>
           </div>
         </div>
       </section>
@@ -155,10 +162,18 @@ export default function Home() {
       {/* Styles */}
       <style jsx global>{`
         :root{
-          --hp-bg:#ffffff; --hp-ink:#0e1320; --hp-muted:#626c7a; --hp-soft:#f7f9fc;
+          /* Pastel, dreamy palette */
+          --hp-bg:#ffffff; --hp-ink:#0f1b2d; --hp-muted:#667488; --hp-soft:#f7fbff;
           --hp-stroke:rgba(15,23,42,.12); --hp-ring:rgba(15,23,42,.10);
-          --hp-shadow:0 10px 34px rgba(16,24,40,.08);
-          --hp-brand:#1e8a68; --hp-blue:#3aa8ff; --hp-lilac:#b574ff;
+          --hp-shadow:0 12px 36px rgba(16,24,40,.10);
+
+          /* Accents inspired by the painting */
+          --hp-brand:#6aa6ff;   /* sky */
+          --hp-blue:#79d4ff;    /* sea */
+          --hp-lilac:#c9a7ff;   /* cloud */
+          --hp-rose:#ffb7c3;    /* flowers */
+          --hp-gold:#ffd78e;    /* sunlight */
+
           --hp-body: var(--font-body, Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif);
           --hp-display: var(--font-display, Georgia, 'Times New Roman', serif);
         }
@@ -176,8 +191,10 @@ export default function Home() {
         h3{ font-weight:800; font-size:20px; margin:6px 0; }
 
         /* Accent & pills */
-        .hp-accent{ background:linear-gradient(90deg,var(--hp-brand),var(--hp-blue)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        .hp-pill{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.06em; background:linear-gradient(90deg,#b9efd9,#d8f3ff); color:#0b2b1f; border:1px solid var(--hp-ring); }
+        .hp-accent{ background:
+          linear-gradient(90deg,var(--hp-gold),var(--hp-rose),var(--hp-lilac),var(--hp-brand));
+          -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .hp-pill{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.06em; background:linear-gradient(90deg,#ffefcf,#fbe0ff); color:#2b2540; border:1px solid var(--hp-ring); }
 
         /* Buttons */
         .hp-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
@@ -193,13 +210,74 @@ export default function Home() {
         .hp-hero{ display:grid; grid-template-columns: 1.05fr 1fr; gap:26px; align-items:center; }
         @media (max-width: 980px){ .hp-hero{ grid-template-columns:1fr; } }
 
-        .hp-hero-img{
-          width:100%; max-width:560px; aspect-ratio: 16/10; border-radius:20px; border:1px solid var(--hp-stroke); box-shadow:var(--hp-shadow);
+        /* Hero visual canvas (no images) */
+        .hp-hero-visual{ display:flex; flex-direction:column; align-items:flex-start; }
+        .hp-hero-canvas{
+          position:relative; width:100%; max-width:640px; aspect-ratio:16/10; border-radius:22px;
+          overflow:hidden; border:1px solid var(--hp-stroke); box-shadow:var(--hp-shadow);
           background:
-            linear-gradient(180deg, rgba(223,246,236,.7), rgba(255,255,255,1)),
-            radial-gradient(1200px 600px at 60% -10%, rgba(122,178,255,.18), transparent 60%),
-            url('/hero.jpg') center/cover no-repeat;
+            radial-gradient(1200px 700px at 75% -10%, rgba(201,167,255,.28), transparent 60%),
+            linear-gradient(180deg, rgba(255,241,204,.45) 0%, rgba(255,255,255,.0) 40%),
+            linear-gradient(180deg, #cfe8ff 0%, #e9f6ff 40%, #fff 100%);
         }
+
+        /* Rainbow arc */
+        .hp-rainbow{
+          position:absolute; inset:-30% -10% auto -10%; height:220%;
+          background: conic-gradient(from 200deg at 50% 60%,
+            transparent 0deg, transparent 48deg,
+            #ffd78e 52deg, #ffd78e 60deg,
+            #ffb7c3 64deg, #ffb7c3 72deg,
+            #c9a7ff 76deg, #c9a7ff 84deg,
+            #79d4ff 88deg, #79d4ff 96deg,
+            transparent 100deg);
+          filter: blur(10px) saturate(1.1) opacity(.6);
+        }
+
+        /* Soft clouds */
+        .hp-cloud{ position:absolute; border-radius:50%;
+          background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,.0) 70%);
+          filter: blur(1px);
+        }
+        .hp-cloud--1{ width:420px; height:240px; left:10%; top:6%; transform:rotate(-4deg); }
+        .hp-cloud--2{ width:380px; height:220px; right:6%; top:2%; transform:rotate(3deg); }
+        .hp-cloud--3{ width:460px; height:260px; left:30%; top:22%; transform:rotate(-2deg); }
+
+        /* Flower field at bottom */
+        .hp-flowers{
+          position:absolute; left:0; right:0; bottom:0; height:30%;
+          background:
+            radial-gradient(800px 120px at 20% 80%, rgba(255,183,195,.35), transparent 60%),
+            radial-gradient(700px 120px at 60% 85%, rgba(201,167,255,.30), transparent 60%),
+            radial-gradient(600px 120px at 90% 90%, rgba(121,212,255,.30), transparent 60%),
+            linear-gradient(180deg, rgba(124,192,160,.25), rgba(255,255,255,0) 70%);
+          mix-blend-mode: multiply;
+        }
+
+        /* Gentle path toward horizon */
+        .hp-path{
+          position:absolute; left:50%; transform:translateX(-50%); bottom:0; width:70%; height:60%;
+          background:
+            linear-gradient( to top, rgba(255,255,255,.85), rgba(255,255,255,.0) 70% ),
+            repeating-linear-gradient( to top,
+              rgba(0,0,0,.06), rgba(0,0,0,.06) 2px,
+              rgba(255,255,255,.0) 18px, rgba(255,255,255,.0) 42px);
+          clip-path: polygon(10% 100%, 90% 100%, 58% 10%, 42% 10%); border-radius:12px;
+          border:1px solid rgba(0,0,0,.06);
+        }
+
+        /* Paw trail */
+        .hp-paws{
+          position:absolute; left:50%; bottom:8%; width:40%; height:30%;
+          transform:translateX(-50%) rotate(-2deg);
+          background:
+            radial-gradient(circle at 10% 80%, rgba(0,0,0,.15) 0 6px, transparent 7px) 0 0/20% 40%,
+            radial-gradient(circle at 30% 60%, rgba(0,0,0,.15) 0 6px, transparent 7px) 0 0/20% 40%,
+            radial-gradient(circle at 50% 40%, rgba(0,0,0,.15) 0 6px, transparent 7px) 0 0/20% 40%,
+            radial-gradient(circle at 70% 20%, rgba(0,0,0,.15) 0 6px, transparent 7px) 0 0/20% 40%;
+          opacity:.25; filter: blur(.4px);
+        }
+
         .hp-badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
         .hp-chip{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#fff; border:1px solid var(--hp-stroke); box-shadow:var(--hp-shadow); font-weight:700; font-size:13px; }
         .hp-dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
@@ -209,8 +287,8 @@ export default function Home() {
         /* TRUST */
         .hp-trust-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; background:#fff; border:1px solid var(--hp-stroke); border-radius:14px; padding:10px 12px; box-shadow:var(--hp-shadow); }
         .hp-trust-label{ font-size:14px; color:var(--hp-muted); white-space:nowrap; }
-        .hp-logos{ display:flex; gap:16px; align-items:center; flex-wrap:wrap; opacity:.9; }
-        .hp-logos img{ height:20px; width:auto; filter: grayscale(1) contrast(1.1); opacity:.9; }
+        .hp-logos{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; opacity:.95; }
+        .hp-logo{ padding:8px 12px; border-radius:12px; border:1px solid var(--hp-stroke); background:#fff; box-shadow:var(--hp-shadow); font-weight:700; font-size:13px; color:#304056; }
 
         /* FEATURES */
         .hp-features{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
@@ -222,12 +300,20 @@ export default function Home() {
         .hp-link{ color:var(--hp-brand); font-weight:800; text-decoration:none; }
         .hp-link:hover{ text-decoration:underline; }
 
-        /* TESTIMONIALS */
+        /* TESTIMONIALS (with generated avatars) */
         .hp-testimonials .hp-head p{ color:var(--hp-muted); }
         .hp-test-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px; }
         @media (max-width:980px){ .hp-test-grid{ grid-template-columns:1fr; } }
         .hp-quote{ background:#fff; border:1px solid var(--hp-stroke); border-radius:16px; padding:16px; box-shadow:var(--hp-shadow); display:grid; grid-template-columns: 44px 1fr; gap:12px; align-items:start; }
-        .hp-avatar{ width:44px; height:44px; border-radius:50%; object-fit:cover; border:1px solid var(--hp-stroke); }
+        .hp-avatar{ width:44px; height:44px; border-radius:50%; border:1px solid var(--hp-stroke); }
+        .hp-avatar--luna{ background:
+          radial-gradient(circle at 30% 30%, #ffd78e 0 40%, transparent 41%),
+          radial-gradient(circle at 70% 60%, #ffb7c3 0 42%, transparent 43%),
+          #fff; }
+        .hp-avatar--archie{ background:
+          radial-gradient(circle at 35% 35%, #79d4ff 0 40%, transparent 41%),
+          radial-gradient(circle at 65% 65%, #c9a7ff 0 42%, transparent 43%),
+          #fff; }
         .hp-quote blockquote{ margin:0; font-size:16px; line-height:1.55; }
         .hp-quote figcaption{ margin-top:6px; font-size:13px; color:var(--hp-muted); grid-column: 2; }
 
@@ -236,14 +322,12 @@ export default function Home() {
         .hp-sub{ margin:0 0 14px; color:var(--hp-muted); }
         .hp-tiers{
           display:grid;
-          grid-template-columns:repeat(3,1fr); /* 3 across desktop */
+          grid-template-columns:repeat(3,1fr);
           gap:20px; align-items:stretch;
         }
         @media (max-width:1024px){ .hp-tiers{ grid-template-columns:repeat(2,1fr); } }
         @media (max-width:640px){ .hp-tiers{ grid-template-columns:1fr; } }
-        .hp-tier{
-          position:relative; background:#fff; border:1px solid var(--hp-stroke); border-radius:18px; padding:22px; text-align:center; box-shadow:var(--hp-shadow); min-width:0;
-        }
+        .hp-tier{ position:relative; background:#fff; border:1px solid var(--hp-stroke); border-radius:18px; padding:22px; text-align:center; box-shadow:var(--hp-shadow); min-width:0; }
         .hp-title{ font-weight:900; letter-spacing:.02em; font-size:14px; color:#1f2a37; }
         .hp-price{ font-size:34px; font-weight:900; margin:10px 0 12px; }
         .hp-price span{ font-size:14px; color:var(--hp-muted); margin-left:4px; }
@@ -264,6 +348,3 @@ export default function Home() {
     </main>
   );
 }
-<style jsx global>{`
-  /* lots of .hp-* styles here */
-`}</style>
