@@ -14,12 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="bg-slate-50 text-slate-800">
-        {/* NAVIGATION */}
-        <header className="bg-white shadow">
-          <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-            <Link href="/" className="text-xl font-bold">Virtual Pet Cemetery</Link>
-            <div className="space-x-6">
+      <body className="bg-white text-slate-900">
+        {/* Header / Nav */}
+        <header className="bg-white/90 backdrop-blur border-b border-slate-200">
+          <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="text-lg font-bold">Virtual Pet Cemetery</Link>
+            <div className="flex items-center gap-6">
               <Link href="/" className="hover:underline">Home</Link>
               <Link href="/about" className="hover:underline">About Us</Link>
               <Link href="/sign-in" className="hover:underline">Sign In</Link>
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
-        {/* MAIN CONTENT */}
+        {/* Page content */}
         <main>{children}</main>
       </body>
     </html>
