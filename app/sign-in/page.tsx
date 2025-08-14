@@ -1,4 +1,6 @@
 // app/sign-in/page.tsx
+'use client';
+
 export default function SignInPage() {
   return (
     <main style={{maxWidth: 640, margin: "0 auto", padding: "32px 18px"}}>
