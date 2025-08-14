@@ -146,7 +146,8 @@ export default function Home() {
           <p>Create a peaceful place today. Invite others when it feels right.</p>
           <div className="hp-cta">
             <Link href="/world" className="hp-btn hp-btn--primary">Open the Builder</Link>
-            <Link href="/login" className="hp-btn hp-btn--ghost">Sign in</Link>
+           <Link href="/sign-in" className="hp-btn hp-btn--ghost">Sign in</Link>
+
           </div>
         </div>
       </section>
