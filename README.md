@@ -64,5 +64,7 @@ create table if not exists events (
 - Real-time presence & chat (Liveblocks or Socket.io).
 - Moderation, guestbook, candles persisted in DB.
 - Theme presets, asset packs, slideshow generator.
+- Test deployment trigger — Aug 14, 2025
+
 ```
 
