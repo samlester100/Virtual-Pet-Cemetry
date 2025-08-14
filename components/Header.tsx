@@ -33,6 +33,8 @@ export default function Header() {
           <NavLink href="/world">World</NavLink>
           <NavLink href="/event/demo">Funeral Demo</NavLink>
           <Link href="/login" className="btn-hero slim ghost">Sign in</Link>
+          <Link href="/about" className="nav-link">About</Link>
+
         </nav>
       </div>
 
